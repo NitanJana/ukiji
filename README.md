@@ -19,8 +19,8 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
 
 ### Phase 1: Foundation & Configuration
 
-- [ ] **Initialize Project:** Initialize a new Tauri app with Svelte + TypeScript.
-- [ ] **Configure Overlay Window:** Define the main visualizer window as:
+- [x] **Initialize Project:** Initialize a new Tauri app with Svelte + TypeScript.
+- [x] **Configure Overlay Window:** Define the main visualizer window as:
   - Transparent
   - Frameless (No title bar)
   - Always On Top
