@@ -21,6 +21,8 @@ pub fn run() {
                 window.set_position(tauri::Position::Physical(tauri::PhysicalPosition::new(
                     x, y,
                 )))?;
+
+                window.show()?;
             }
 
             Ok(())
