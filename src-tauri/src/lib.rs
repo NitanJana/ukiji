@@ -7,6 +7,9 @@ pub fn run() {
         .setup(|app| {
             let window = app.get_webview_window("main").unwrap();
 
+            // click-through window
+            window.set_ignore_cursor_events(true)?;
+
             if let Ok(Some(monitor)) = window.current_monitor() {
                 let screen_size = monitor.size();
                 let scale_factor = monitor.scale_factor();
