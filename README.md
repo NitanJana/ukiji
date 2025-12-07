@@ -31,7 +31,7 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
 - [x] **Version Bump Script:** Create a script to automate version bumping and tagging.
 - [x] **Setup Tag Protection:** Configure tag protection rules for authorized maintainers.
 - [x] **Release Workflow:** GitHub Actions workflow for automated Windows builds and releases.
-- [ ] **Labeler Workflow:** GitHub Actions workflow for automated label assignment.
+- [x] **Labeler Workflow:** GitHub Actions workflow for automated label assignment.
 
 ### Phase 2: The Backend (Rust)
 
