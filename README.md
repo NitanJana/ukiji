@@ -125,8 +125,7 @@ This will:
 Push the tag to trigger the automated release workflow:
 
 ```bash
-git push
-git push --tags
+git push && git push --tags
 ```
 
 **Note:** If you're not an authorized maintainer, the `git push --tags` command will be rejected by GitHub's tag protection rules.
