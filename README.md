@@ -21,10 +21,13 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
 
 - [x] **Initialize Project:** Initialize a new Tauri app with Svelte + TypeScript.
 - [x] **Configure Overlay Window:** Define the main visualizer window as:
-  - Transparent
-  - Frameless (No title bar)
-  - Always On Top
-  - Fixed position (Bottom-Center)
+  - [x] Transparent
+  - [x] Frameless (No title bar)
+  - [x] Always On Top
+  - [x] Fixed position (Bottom-Center)
+  - [x] Shadowless
+  - [x] Click-through behavior
+  - [x] Not in taskbar
 
 ### Phase 2: The Backend (Rust)
 

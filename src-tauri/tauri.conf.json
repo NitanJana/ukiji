@@ -12,12 +12,15 @@
   "app": {
     "windows": [
       {
+        "width": 400,
+        "height": 100,
         "decorations": false,
         "transparent": true,
         "alwaysOnTop": true,
-        "width": 400,
-        "height": 100,
-        "visible": false
+        "visible": false,
+        "shadow": false,
+        "skipTaskbar": true,
+        "resizable": false
       }
     ],
     "security": {
