@@ -28,6 +28,9 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
   - [x] Shadowless
   - [x] Click-through behavior
   - [x] Not in taskbar
+- [x] **Version Bump Script:** Create a script to automate version bumping and tagging.
+- [ ] **Setup Tag Protection:** Configure tag protection rules for authorized maintainers.
+- [ ] **Release Workflow:** GitHub Actions workflow for automated Windows builds and releases.
 
 ### Phase 2: The Backend (Rust)
 
@@ -83,3 +86,58 @@ pnpm run tauri dev
 ```bash
 pnpm run tauri build
 ```
+
+---
+
+## Version Management & Releases (Maintainers Only)
+
+```
+Note: Only authorized maintainers can create releases. Tag protection rules prevent unauthorized contributors from pushing version tags.
+```
+
+### Bump Version
+
+Use standard npm version commands to bump the version across all files (`package.json`, `tauri.conf.json`, `Cargo.toml`, `Cargo.lock`):
+
+```bash
+# Bump patch version (0.1.0 → 0.1.1)
+pnpm version patch
+
+# Bump minor version (0.1.0 → 0.2.0)
+pnpm version minor
+
+# Bump major version (0.1.0 → 1.0.0)
+pnpm version major
+
+# Or specify exact version
+pnpm version 1.5.2
+```
+
+This will:
+
+- Update all version files
+- Create a git commit with the version changes
+- Create a git tag (e.g., `v0.1.1`)
+
+### Create a Release
+
+Push the tag to trigger the automated release workflow:
+
+```bash
+# Push commits and tags together
+git push --follow-tags
+
+# Or push separately
+git push
+git push --tags
+```
+
+**Note:** If you're not an authorized maintainer, the `git push --tags` command will be rejected by GitHub's tag protection rules.
+
+Once the tag is pushed to GitHub, a GitHub Action will automatically:
+
+- Build the Windows distributable (.exe, .msi)
+- Create a draft release on GitHub
+- Attach the installers to the release
+
+Review the draft release on GitHub and publish it when ready.
