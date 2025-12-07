@@ -24,7 +24,7 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
   - Transparent
   - Frameless (No title bar)
   - Always On Top
-  - Fixed position (e.g., Bottom-Center)
+  - Fixed position (Bottom-Center)
 
 ### Phase 2: The Backend (Rust)
 
