@@ -27,7 +27,7 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
   - [x] Fixed position (Bottom-Center)
   - [x] Shadowless
   - [ ] Click-through behavior
-  - [ ] Not in taskbar
+  - [x] Not in taskbar
 
 ### Phase 2: The Backend (Rust)
 
