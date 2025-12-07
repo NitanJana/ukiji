@@ -12,9 +12,12 @@
   "app": {
     "windows": [
       {
-        "title": "ukiji",
-        "width": 800,
-        "height": 600
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "width": 400,
+        "height": 100,
+        "visible": false
       }
     ],
     "security": {
