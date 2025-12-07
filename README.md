@@ -10,7 +10,7 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
 
 - **Core:** Tauri v2 (Rust backend + Web frontend)
 - **UI:** Svelte (TypeScript), Tailwind CSS
-- **Input Handling:** `rdev` (Rust crate for global key listening)
+- **Input Handling:** Rust backend for global key listening (even when the app is unfocused)
 - **State Management:** Svelte Stores + Tauri Store Plugin (Persistence)
 
 ---
@@ -125,10 +125,6 @@ This will:
 Push the tag to trigger the automated release workflow:
 
 ```bash
-# Push commits and tags together
-git push --follow-tags
-
-# Or push separately
 git push
 git push --tags
 ```

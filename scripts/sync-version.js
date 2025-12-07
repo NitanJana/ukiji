@@ -25,6 +25,7 @@ try {
   });
   execSync("git add src-tauri", { stdio: "inherit" });
   execSync("git commit --amend --no-edit", { stdio: "inherit" });
+  execSync(`git tag -f v${version}`, { stdio: "inherit" });
 
   console.log(`All version files synced to ${version}`);
 } catch (error) {
