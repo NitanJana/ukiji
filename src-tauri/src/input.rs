@@ -10,7 +10,7 @@ pub fn spawn_listener(app_handle: AppHandle) {
                 let label = get_key_label(key, event.name);
                 println!("Key: {}", label);
 
-                let _ = app_handle.emit("GLOBAL_KEY", label);
+                let _ = app_handle.emit("global-keypress", label);
             }
         };
 

@@ -6,7 +6,7 @@
     let unlisten: () => void;
 
     onMount(async () => {
-        unlisten = await listen<string>("GLOBAL_KEY", (event) => {
+        unlisten = await listen<string>("global-keypress", (event) => {
             displayState = event.payload;
         });
     });
