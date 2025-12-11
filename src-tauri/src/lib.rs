@@ -1,4 +1,4 @@
-use rdev::{listen, Event, EventType};
+use rdev::{listen, Event, EventType, Key};
 use std::thread;
 use tauri::{Emitter, Manager};
 
@@ -35,7 +35,26 @@ pub fn run() {
             thread::spawn(move || {
                 let callback = move |event: Event| {
                     if let EventType::KeyPress(key) = event.event_type {
-                        let payload = event.name.unwrap_or_else(|| format!("{:?}", key));
+                        let payload = match key {
+                            // --- Functional ---
+                            Key::Space => "Space".to_string(),
+                            Key::Return => "Enter".to_string(),
+                            Key::Backspace => "Backspace".to_string(),
+                            Key::Tab => "Tab".to_string(),
+                            Key::Escape => "Esc".to_string(),
+
+                            // --- Modifiers ---
+                            Key::ShiftLeft | Key::ShiftRight => "Shift".to_string(),
+                            Key::ControlLeft | Key::ControlRight => "Ctrl".to_string(),
+                            Key::Alt | Key::AltGr => "Alt".to_string(),
+                            Key::MetaLeft | Key::MetaRight => "Win/Cmd".to_string(),
+                            Key::Function => "Fn".to_string(),
+
+                            // --- Numbers & Letters (The Default) ---
+                            // If we have a unicode name (like "a" or "1"), use it.
+                            // Otherwise, fallback to the raw enum name (like "Num1").
+                            _ => event.name.unwrap_or_else(|| format!("{:?}", key)),
+                        };
                         println!("Global Key Press: {}", payload);
 
                         let _ = app_handle.emit("GLOBAL_KEY", payload);
