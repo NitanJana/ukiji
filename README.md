@@ -35,8 +35,10 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
 
 ### Phase 2: The Backend (Rust)
 
-- [ ] **Global Listener Thread:** Spawn a separate thread in Rust that listens for key events system-wide (even when the app is unfocused).
-- [ ] **Event Bridge:** Implement a callback that filters raw inputs and emits a simplified `keypress` event to the frontend via Tauri's Event system.
+- [x] **Global Listener Thread:** Spawn a separate thread in Rust that listens for key events system-wide (even when the app is unfocused).
+- [x] **Event Bridge:** Implement a callback that filters raw inputs and emits `global-keypress` event to the frontend.
+- [x] **Input Normalization:** Convert raw hardware keypress signals into readable strings.
+- [ ] **Combination Detection:** Track modifier states to identify and handle multi-key shortcuts.
 
 ### Phase 3: The Visualizer (Frontend)
 
@@ -45,9 +47,8 @@ Built with **Tauri v2**, **Svelte**, **Rust**.
 - [ ] **Visual Component:** Key UI components.
 - [ ] **Animations:** Svelte transitions to animate keys entering and leaving the screen.
 
-### Phase 4: Window Behavior & Polish
+### Phase 4: Cross-Platform Check & Polish
 
-- [ ] **Click-Through:** Main window with click-through behavior.
 - [ ] **Cross-Platform Check:** Ensure features work smoothly on Windows, macOS, and Linux.
 
 ### Phase 5: User Control (Settings & Tray)
