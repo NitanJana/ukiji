@@ -1,4 +1,6 @@
-use tauri::Manager;
+use rdev::{listen, Event, EventType};
+use std::thread;
+use tauri::{Emitter, Manager};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -27,6 +29,23 @@ pub fn run() {
 
                 window.show()?;
             }
+
+            let app_handle = app.handle().clone();
+
+            thread::spawn(move || {
+                let callback = move |event: Event| {
+                    if let EventType::KeyPress(key) = event.event_type {
+                        let payload = event.name.unwrap_or_else(|| format!("{:?}", key));
+                        println!("Global Key Press: {}", payload);
+
+                        let _ = app_handle.emit("GLOBAL_KEY", payload);
+                    }
+                };
+
+                if let Err(error) = listen(callback) {
+                    eprintln!("Error in global listener: {:?}", error);
+                }
+            });
 
             Ok(())
         })
